@@ -1,9 +1,6 @@
 <?php
 
-define('DB_SERVER', 'sql9.freemysqlhosting.net');
-define('DB_USERNAME', 'sql9199085');
-define('DB_PASSWORD', 'Lb5XAj2TRT');
-define('DB_DATABASE', 'sql9199085');
+include 'inc/dbinfo.inc'
 
 $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
