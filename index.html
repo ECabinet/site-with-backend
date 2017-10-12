@@ -3,26 +3,75 @@
     <head>
         <title>Mailing List</title>
 
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+        <script src="https://use.fontawesome.com/5524b12231.js"></script>        
+        <link rel="stylesheet" type="text/css" href="style2.css">
     </head>
     <body>
-        <h1>Personable. Intelligent.</h1>
+        <div id="content" class="row">
+            <div id="left" class="col-md-5">
+                <img src="http://via.placeholder.com/100x100" class="img-fluid mx-auto d-block">
+                <h1 class="text-center">E-Cabinet</h1>
+                <p>Join our mailing list to be notified when we launch</p>
 
-        <div id="content">
-            <p>Join our mailing list to be notified when we launch</p>
+                <ul>
+                    <li><span class="fa fa-check-circle-o"></span> Domain Expertise</li>
+                    <li><span class="fa fa-check-circle-o"></span> Tangible Opportunities</li>
+                    <li><span class="fa fa-check-circle-o"></span> Career Awareness</li>
+                </ul>
+            </div>
 
-            <div id="form">
-                <form action="form.php" method="post">
-                    <input type="text" name="fname" placeholder="First Name" class="col-47" required>
-                    <input type="text" name="lname" placeholder="Last Name" class="col-47">
+            <div id="form" class="col-md-7">
+                <h1>Sign Up</h1>
+                <form action="form.php" method="post" class="form-group">
 
-                    <br>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <input
+                            type="text"
+                            name="fname"
+                            placeholder="First Name"
+                            class="form-control">
+                        <div class="input-group-addon"><span class="fa fa-id-card-o"></span></div>
+                    </div>
 
-                    <input type="text" name="phone" placeholder="Phone" class="col-40">
-                    <input type="text" name="email" placeholder="Email" class="col-54" required>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <input
+                            type="text"
+                            name="lname"
+                            placeholder="Last Name"
+                            class="form-control">
+                        <div class="input-group-addon"><span class="fa fa-id-card-o"></span></div>
+                    </div>
 
-                    <br>
-                    <button type="submit" value="submit">Sign up!</button>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                         <input
+                            type="text"
+                            name="phone"
+                            placeholder="Phone"
+                            class="form-control">
+                        <div class="input-group-addon"><span class="fa fa-phone"></span></div>
+                    </div>
+
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <input
+                        type="text"
+                        name="email"
+                        placeholder="Email"
+                        class="form-control">
+                        <div class="input-group-addon"><span class="fa fa-envelope-o"></span></div>
+                    </div>
+
+                    <div class="buttons row">
+                        <div class="col-md-6">
+                            <button class="sign-up" type="submit">Sign up!</button>
+                        </div>
+
+                        <div class="col-md-6">
+                            <button type="button" class="social-btn facebook"><span class="fa fa-facebook"></span></button>
+                            <button type="button" class="social-btn twitter"><span class="fa fa-twitter"></span></button>
+                            <button type="button" class="social-btn google"><span class="fa fa-google-plus"></span></button>
+                        </div>
                 </form>
             </div>
         </div>
