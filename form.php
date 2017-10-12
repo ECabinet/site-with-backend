@@ -2,6 +2,8 @@
 
 include '../inc/dbinfo.inc';
 
+$echo DB_HOST;
+
 $link = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 if(!$link) {
