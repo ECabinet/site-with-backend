@@ -1,8 +1,9 @@
 <?php
 
-include '../inc/dbinfo.inc';
-
-$echo DB_HOST;
+define('DB_SERVER', 'ecabinet.cy1urir3p2pw.us-east-1.rds.amazonaws.com');
+define('DB_USERNAME', 'ecabinetAdmin');
+define('DB_PASSWORD', 'ecabinetAdmin');
+define('DB_DATABASE', 'ecabinet');
 
 $link = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
