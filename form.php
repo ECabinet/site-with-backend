@@ -39,7 +39,7 @@ if(isset($_POST['email'])){
   $evalue = $_POST['email'];
 }
 
-$sql = "INSERT INTO ecabinetinfo (fname, lname, phone, email) VALUES ('$fvalue', '$lvalue', '$pvalue', '$evalue')";
+$sql = "INSERT INTO profile (fname, lname, phone, email) VALUES ('$fvalue', '$lvalue', '$pvalue', '$evalue')";
 
 if(!mysqli_query($link, $sql)){
   die("Error: " . mysql_error());
