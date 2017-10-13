@@ -17,6 +17,10 @@ body {
     font-size: 3em;
 }*/
 
+.logo {
+    margin-bottom: 50px;
+}
+
 span.header {
     display: block;
     text-align: center;
