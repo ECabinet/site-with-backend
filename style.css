@@ -33,9 +33,16 @@ span.header {
     border-radius: 5px;
 }
 
+#thank-you {
+    padding-top: 100px;
+}
+
+#thank-you img { 
+    margin-top: 30px;
+}
 #left {
     padding: 30px;
-    background: url('images/taipei.jpg');
+    background: url('images/taipei.png');
     background-size: cover;
     position: relative;
     overflow: hidden
