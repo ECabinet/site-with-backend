@@ -196,3 +196,32 @@ span.header {
 #podcast-audio {
     margin-top: 100px;
 }
+
+#podcast-episodes {
+    background: #fff;
+}
+
+#podcast-episodes .podcast-header {
+    text-align: center;
+    height: 350px;
+    background: url('images/city.png');
+    background-size: cover;
+}
+
+#podcast-episodes .podcast-header h1 {
+    line-height: 350px;
+    color: #fff;
+}
+
+.podcast-list .episode {
+    height: 300px;
+    margin: 40px 0px 40px 0px;
+}
+
+.podcast-list .episode img {
+    width: 100%;
+}
+
+.podcast-list .episode p {
+    margin-top: 25px;
+}
