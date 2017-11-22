@@ -178,7 +178,7 @@ span.header {
     color: #dd4b39 !important;
 }
 
-#podcast {
+.podcast-episode {
     padding-top: 100px;
     color: #fff;
     text-align: center;
@@ -224,4 +224,23 @@ span.header {
 
 .podcast-list .episode p {
     margin-top: 25px;
+}
+
+#podcast .reviews {
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+#podcast .review {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+nav {
+    margin-right: 100px;
+}
+
+nav a:hover {
+    color: #fff;
+    text-decoration: underline !important;
 }
