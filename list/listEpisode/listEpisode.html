@@ -1,0 +1,14 @@
+<div class="row episode">
+    <div class="col-3">
+        <img src="{{ $ctrl.episode.image }}">
+    </div>
+
+    <div class="col">
+        <h1><a ui-sref="episode({ podcastId: {{ $ctrl.episode.id }} })" class="nav-link">{{ $ctrl.episode.title }}</a></h1>
+        <span class="info">{{ $ctrl.episode.date }}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{ $ctrl.episode.time }}</span>
+
+        <p>
+            {{ $ctrl.episode.description }}
+        </p>
+    </div>
+</div>

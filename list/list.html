@@ -1,0 +1,13 @@
+<div id="podcast-episodes">
+    <div class="podcast-header">
+        <h1>Episodes</h1>
+    </div>
+
+    <div class="podcast-list col-md-9 mx-auto">
+        <div ng-repeat="episode in $ctrl.episodes">
+            <list-episode
+                episode="episode">
+            </list-episode>
+        </div>
+    </div>
+</div>

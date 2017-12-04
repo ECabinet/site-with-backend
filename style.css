@@ -10,10 +10,11 @@ body {
     min-height: 100%;
 }
 
-body#podcast {
+#podcast {
     background: url('images/city.png');
     background-size: cover;
     min-height: 100%;
+    color: #fff;
 }
 
 /*h1 {
