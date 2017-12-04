@@ -1,17 +1,11 @@
 <div id="podcast">
     <div class="podcast-episode container">
-        <h1>James Ellsmoor EP4 - Forbes 30 under 30</h1>
-        <span class="info">October 14, 2017&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;00:24:53</span>
+        <h1 ng-bind="$ctrl.episode.title"></h1>
+        <span class="info">{{ $ctrl.episode.date }}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{ $ctrl.episode.time }}</span>
 
         <div class="col-md-7 mx-auto">
             <div id="podcast-content">
-                <p>
-                    James is a driven entrepreneur passionate about solar energy and developing rural and island economies, with experience in the private, non-profit and government sectors.
-                </p>
-
-                <p>
-                    As Director of Solar Head of State, James leads an international team spread over five continents to execute solar energy installations on iconic government buildings. Partners for each project include national governments, solar multinationals and global foundations...
-                </p>
+               {{ $ctrl.episode.description }}
             </div>
 
             <div id="podcast-audio">
@@ -23,21 +17,52 @@
     <div class="container reviews">
         <h1>Reviews</h1>
 
-        <div class="review mx-auto col-md-7">
-            John Smith&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <p>Vivamus eu elementum lectus. Etiam non enim eget dui eleifend tincidunt. Nam ornare ipsum eget ipsum gravida, vitae varius diam eleifend. Cras at consequat justo. Ut feugiat ligula eu viverra cursus. Donec maximus semper nulla eu lacinia. Sed fermentum id quam suscipit hendrerit. Curabitur laoreet sem sit amet magna cursus, ut tempus ex porta. Quisque venenatis, diam ut lacinia commodo, sem elit convallis felis, vitae ullamcorper justo nunc eu nulla.</p>
+        <div ng-repeat="review in $ctrl.reviews">
+            <review
+                review="review">
+            </review>
         </div>
 
-        <div class="review mx-auto col-md-7">
-            Jane Doe&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <p>Nunc a facilisis diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque vitae dolor maximus, suscipit lectus eu, fermentum lacus. In hac habitasse platea dictumst. Etiam volutpat, mi a semper bibendum, justo ipsum dapibus elit, condimentum lacinia tellus purus sed ligula.</p>
+        <div class="review mx-auto col-md-7" ng-if="$ctrl.writeReview">
+            <form>
+              <div class="form-group">
+                <textarea
+                    class="form-control"
+                    rows="3"
+                    ng-model="$ctrl.description"
+                    id="description"
+                    name="description">
+                </textarea>
+              </div>
+              <div class="form-group">
+                Rating: 
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1"> 1
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"> 2
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3"> 3
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="4"> 4
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="5"> 5
+                </label>
+              </div>
+              <button
+                type="submit"
+                class="btn btn-default"
+                ng-click="$ctrl.writeReview = !$ctrl.writeReview">Submit</button>
+            </form>
         </div>
+        <button
+            ng-if="!$ctrl.writeReview"
+            class="btn btn-default"
+            ng-click="$ctrl.writeReview = !$ctrl.writeReview">
+            Write a Review
+        </button>
     </div>
 </div>
