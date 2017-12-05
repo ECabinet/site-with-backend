@@ -15,18 +15,23 @@
 		</style>
 	</head>
 	<body ng-app="ecabinet">
-		<nav class="navbar navbar-expand-lg pull-right">
-	        <div class="collapse navbar-collapse">
-	            <ul class="navbar-nav mr-auto">
-	                <li class="nav-item">
-	                    <a ui-sref="landing" class="nav-link">Home</a>
-	                </li>
-	                <li class="nav-item">
-	                    <a ui-sref="podcasts" class="nav-link">Podcasts</a>
-	                </li>
-	            </ul>
-	        </div>
-	    </nav>
+		<div class="row container">
+			<nav class="navbar navbar-expand-lg pull-right">
+		        <div class="collapse navbar-collapse">
+		            <ul class="navbar-nav mr-auto">
+		                <li class="nav-item">
+		                    <a ui-sref="landing" class="nav-link">Home</a>
+		                </li>
+		                <li class="nav-item">
+		                    <a ui-sref="podcasts" class="nav-link">Podcasts</a>
+		                </li>
+		                <li class="nav-item">
+		                    <a ui-sref="login" class="nav-link">Login</a>
+		                </li>
+		            </ul>
+		        </div>
+		    </nav>
+		</div>
 
 		<ui-view></ui-view>
 
@@ -88,6 +93,8 @@
 		<script src="list/listEpisode/listEpisode.component.js"></script>
 		<script src="mailing/mailing.component.js"></script>
 		<script src="episode/review/review.component.js"></script>
+		<script src="login/login.component.js"></script>
+
 
 		<script src="podcastService.js"></script>
 	</body>
