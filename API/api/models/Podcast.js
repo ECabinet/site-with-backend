@@ -8,11 +8,11 @@
 module.exports = {
  
  attributes: {
-      title: 'string',
-      soundCloud: 'string',
-      description:'string',
-      dateOfPodcast: 'string',
-      reviews:'string'
+ 	  podcastId: 'integer'
+      pTitle: 'sting',
+      url: 'string',
+      pDescription:'string',
+      pDate: 'string'
   }
 };
 sails.config.models.migrate='drop';

@@ -8,8 +8,11 @@
 module.exports = {
  
  attributes: {
-      login: 'string',
-      password: 'string'
+      userId: 'integer',
+      email: 'string', //todo 
+      phone:'string',
+      fName:'string',
+      lName:'string'
   }
 };
 sails.config.models.migrate='drop';

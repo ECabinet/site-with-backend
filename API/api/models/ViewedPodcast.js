@@ -8,9 +8,8 @@
 module.exports = {
 
   attributes: {
-  	login: 'string',
-  	title: 'string',
-  	viewed: 'string'
+  	userId: 'integer',
+  	podcastId: 'integer'
   }
 };
 sails.config.models.migrate='drop';
