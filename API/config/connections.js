@@ -52,7 +52,7 @@ module.exports.connections = {
     user: 'cabinet312',
     password: 'password1!',
     host: 'ecabinet-mysql-database.csrenvcja3mz.us-east-1.rds.amazonaws.com',
-    database: 'ecabinet-mysql-database'
+    database: 'ecabinetDatabase'
   }
 
   /***************************************************************************

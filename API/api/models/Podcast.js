@@ -8,8 +8,8 @@
 module.exports = {
  
  attributes: {
- 	  podcastId: 'integer'
-      pTitle: 'sting',
+ 	  podcastId: 'integer',
+      pTitle: 'string',
       url: 'string',
       pDescription:'string',
       pDate: 'string'
