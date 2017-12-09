@@ -50,7 +50,7 @@ module.exports.connections = {
    remoteMysql: {
     adapter: 'sails-mysql',
     user: 'cabinet312',
-    password: 'password1!',
+    password: 'podcast1!',
     host: 'ecabinet-mysql-database.csrenvcja3mz.us-east-1.rds.amazonaws.com',
     database: 'ecabinetDatabase'
   }
