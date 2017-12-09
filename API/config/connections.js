@@ -47,6 +47,13 @@ module.exports.connections = {
   //   password: 'YOUR_MYSQL_PASSWORD', //optional
   //   database: 'YOUR_MYSQL_DB' //optional
   // },
+   remoteMysql: {
+    adapter: 'sails-mysql',
+    user: 'cabinet312',
+    password: 'password1!',
+    host: 'ecabinet-mysql-database.csrenvcja3mz.us-east-1.rds.amazonaws.com',
+    database: 'ecabinet-mysql-database'
+  }
 
   /***************************************************************************
   *                                                                          *
