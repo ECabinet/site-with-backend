@@ -39,12 +39,16 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
+  '/login' : {
+     controller: 'UserController',
+     action: 'login'
+  },
 
-   // '/Podcast' : {
-   //       controller: 'main',
-   //       action: 'signup'
-   //  },
+   // '/podcast' : {
+   //       controller: 'PodcastController',
+   //       action: 'podcast'
+   //  }
 
   /***************************************************************************
   *                                                                          *

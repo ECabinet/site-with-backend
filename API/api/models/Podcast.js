@@ -11,7 +11,14 @@ module.exports = {
       pTitle: 'string',
       url: 'string',
       pDescription:'string',
-      pDate: 'string'
+      pDate: 'date',
+      pTimeLength:'string', 
+      pPic:'string',
+
+
+      reviews: {
+      	collection: 'Review'
+      }
   }
 };
 // sails.config.models.migrate='drop';
