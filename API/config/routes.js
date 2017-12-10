@@ -34,12 +34,12 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
 
-   // '/Podcast' : {
-   //       controller: 'main',
-   //       action: 'signup'
-   //  },
+   // '/podcast' : {
+   //       controller: 'PodcastController',
+   //       action: 'podcast'
+   //  }
 
   /***************************************************************************
   *                                                                          *

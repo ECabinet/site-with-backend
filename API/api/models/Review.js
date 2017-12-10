@@ -10,9 +10,16 @@ module.exports = {
   attributes: {
   	  reviewId :'integer',
   	  userId: 'integer',
-      rTitle: 'string',
-      rDescription : 'string'
-  }
+      rRating: 'integer',
+      rDescription : 'string',
+
+      reviewer:{
+      	collection: 'User'
+      }
+  },
+
+  
 };
 // sails.config.models.migrate='drop';
 
+// Podcast.CREATE({pTitle: 'James', url: 'https://soundcloud.com/user-744020114/e-cabinetjames-ellsmoor-ep4'}).EXEC(CONSOLE.LOG)
