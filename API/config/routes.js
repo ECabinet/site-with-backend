@@ -35,6 +35,10 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
+  '/login' : {
+     controller: 'UserController',
+     action: 'login'
+  },
 
    // '/podcast' : {
    //       controller: 'PodcastController',
