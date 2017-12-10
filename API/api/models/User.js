@@ -15,5 +15,5 @@ module.exports = {
       lName:'string'
   }
 };
-sails.config.models.migrate='drop';
+// sails.config.models.migrate='drop';
 
