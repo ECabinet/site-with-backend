@@ -8,7 +8,6 @@
 module.exports = {
  
  attributes: {
- 	  podcastId: 'integer',
       pTitle: 'string',
       url: 'string',
       pDescription:'string',

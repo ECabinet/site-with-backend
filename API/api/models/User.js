@@ -8,7 +8,6 @@
 module.exports = {
  
  attributes: {
-      userId: 'integer',
       email: 'string', //todo 
       phone:'string',
       fName:'string',

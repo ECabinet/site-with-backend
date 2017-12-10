@@ -12,4 +12,4 @@ module.exports = {
   	podcastId: 'integer'
   }
 };
-sails.config.models.migrate='drop';
+// sails.config.models.migrate='drop';

@@ -8,7 +8,6 @@
 module.exports = {
 
   attributes: {
-  	  reviewId :'integer',
   	  userId: 'integer',
       rTitle: 'string',
       rDescription : 'string'
