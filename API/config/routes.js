@@ -21,6 +21,11 @@
  */
 
 module.exports.routes = {
+  cors: {
+    origin: 'http://localhost:1337',
+    methods: 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
+    headers: 'Content-Type, Authorization, X-Requested-With'
+  },
 
   /***************************************************************************
   *                                                                          *

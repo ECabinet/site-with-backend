@@ -16,7 +16,9 @@ function ListCtrl(podcastFactory, GLOBAL_VARIABLES, $http) {
     method: 'GET',
     url: GLOBAL_VARIABLES.API_URL + '/podcast'
   }).then(function successCallback(response) {
-    ctrl.episodes = response.data;
+    if (response.data.length) {
+      ctrl.episodes = response.data;
+    }
 
     // this callback will be called asynchronously
     // when the response is available

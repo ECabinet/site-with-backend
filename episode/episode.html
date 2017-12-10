@@ -1,11 +1,11 @@
 <div id="podcast">
     <div class="podcast-episode container">
-        <h1 ng-bind="$ctrl.episode.title"></h1>
-        <span class="info">{{ $ctrl.episode.date }}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{ $ctrl.episode.time }}</span>
+        <h1 ng-bind="$ctrl.episode.pTitle"></h1>
+        <span class="info">{{ $ctrl.episode.pDate }}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{ $ctrl.episode.pTime }}</span>
 
         <div class="col-md-7 mx-auto">
             <div id="podcast-content">
-               {{ $ctrl.episode.description }}
+               {{ $ctrl.episode.pDescription }}
             </div>
 
             <div id="podcast-audio">
@@ -37,25 +37,25 @@
               <div class="form-group">
                 Rating: 
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1"> 1
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" ng-model="$ctrl.rating"> 1
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"> 2
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2" ng-model="$ctrl.rating"> 2
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3"> 3
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3" ng-model="$ctrl.rating"> 3
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="4"> 4
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="4" ng-model="$ctrl.rating"> 4
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="5"> 5
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="5" ng-model="$ctrl.rating"> 5
                 </label>
               </div>
               <button
                 type="submit"
                 class="btn btn-default"
-                ng-click="$ctrl.writeReview = !$ctrl.writeReview">Submit</button>
+                ng-click="$ctrl.saveReview()">Submit</button>
             </form>
         </div>
         <button

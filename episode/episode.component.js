@@ -7,9 +7,10 @@ angular
     }
   });
 
-function EpisodeCtrl($stateParams, podcastFactory) {
+function EpisodeCtrl($stateParams, podcastFactory, $http, GLOBAL_VARIABLES) {
   var ctrl = this;
   ctrl.$onInit = $onInit;
+  ctrl.saveReview = saveReview;
 
   function $onInit() {
     ctrl.reviews = [
@@ -24,5 +25,26 @@ function EpisodeCtrl($stateParams, podcastFactory) {
     ];
 
     ctrl.episode = podcastFactory.getById($stateParams.podcastId);
+  }
+
+  function saveReview() {
+    debugger;
+    ctrl.writeReview = !ctrl.writeReview;
+
+    $http.post(GLOBAL_VARIABLES.API_URL + '/review', {
+      userId: 1,
+      rDescription: 'abc'
+    }).then(function successCallback(response) {
+        ctrl.reviews.push({
+          userId: 1,
+          rDescription: 'abc'
+        });
+
+        // this callback will be called asynchronously
+        // when the response is available
+      }, function errorCallback(response) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+      });
   }
 }
