@@ -7,7 +7,7 @@ angular
     }
   });
 
-function EpisodeCtrl($stateParams, podcastFactory, $http, GLOBAL_VARIABLES) {
+function EpisodeCtrl($stateParams, podcastFactory, $http, GLOBAL_VARIABLES, $sce) {
   var ctrl = this;
   ctrl.$onInit = $onInit;
   ctrl.saveReview = saveReview;
@@ -24,20 +24,40 @@ function EpisodeCtrl($stateParams, podcastFactory, $http, GLOBAL_VARIABLES) {
       }
     ];
 
-    ctrl.episode = podcastFactory.getById($stateParams.podcastId);
+    $http.get(GLOBAL_VARIABLES.API_URL + '/podcast/' + $stateParams.podcastId)
+      .then(function successCallback(response) {
+        ctrl.episode = response.data;
+
+        if (ctrl.episode.reviews.length) {
+          ctrl.reviews = ctrl.episode.reviews;
+
+          ctrl.reviews.forEach(function(review) {
+            $http.get(GLOBAL_VARIABLES.API_URL + '/review/' + review.id)
+              .then(function success(response) {
+                review.user = response.data.user;
+              });
+          });
+        }
+
+        ctrl.source = $sce.getTrustedResourceUrl(ctrl.episode.url + '&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true"');
+        // this callback will be called asynchronously
+        // when the response is available
+      }, function errorCallback(response) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+      });
   }
 
   function saveReview() {
-    debugger;
     ctrl.writeReview = !ctrl.writeReview;
 
     $http.post(GLOBAL_VARIABLES.API_URL + '/review', {
-      userId: 1,
-      rDescription: 'abc'
+      user: 1,
+      description: 'abc'
     }).then(function successCallback(response) {
         ctrl.reviews.push({
-          userId: 1,
-          rDescription: 'abc'
+          user: 1,
+          description: 'abc'
         });
 
         // this callback will be called asynchronously

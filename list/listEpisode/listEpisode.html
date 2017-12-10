@@ -1,14 +1,14 @@
 <div class="row episode">
     <div class="col-3">
-        <img src="{{ $ctrl.episode.image }}">
+        <img src="{{ $ctrl.episode.pic }}">
     </div>
 
     <div class="col">
-        <h1><a ui-sref="episode({ podcastId: {{ $ctrl.episode.id }} })" class="nav-link">{{ $ctrl.episode.pTitle }}</a></h1>
-        <span class="info">{{ $ctrl.episode.pDate }}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{ $ctrl.episode.pTime }}</span>
+        <h1><a ui-sref="episode({ podcastId: $ctrl.episode.id })" class="nav-link">{{ $ctrl.episode.title }}</a></h1>
+        <span class="info">{{ $ctrl.episode.date | date: 'shortDate' }}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{ $ctrl.episode.timeLength }}</span>
 
         <p>
-            {{ $ctrl.episode.pDescription }}
+            {{ $ctrl.episode.description }}
         </p>
     </div>
 </div>

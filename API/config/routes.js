@@ -45,6 +45,8 @@ module.exports.routes = {
      action: 'login'
   },
 
+  'get /podcast/count': 'PodcastController.count'
+
    // '/podcast' : {
    //       controller: 'PodcastController',
    //       action: 'podcast'

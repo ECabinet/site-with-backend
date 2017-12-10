@@ -7,18 +7,21 @@
 
 module.exports = {
  
- attributes: {
-      pTitle: 'string',
-      url: 'string',
-      pDescription:'string',
-      pDate: 'date',
-      pTimeLength:'string', 
-      pPic:'string',
+  attributes: {
+    title: 'string',
+    url: 'string',
+    description:'string',
+    date: 'date',
+    timeLength:'string', 
+    pic:'string',
 
-
-      reviews: {
-      	collection: 'Review'
-      }
+    reviews: {
+      collection: 'Review',
+      via: 'podcast'
+    },
+    views: {
+      collection: 'ViewedPodcast',
+      via: 'podcast'
+    }
   }
 };
-// sails.config.models.migrate='drop';

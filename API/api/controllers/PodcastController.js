@@ -51,5 +51,10 @@ module.exports = {
 	 //    	}
 		// });
 	
+	count: function(req, res) {
+		return Podcast.count().exec(function countCB(error, found) {
+			res.send(200, found);
+		});
+	}
 };
 

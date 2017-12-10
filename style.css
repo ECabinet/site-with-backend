@@ -229,7 +229,8 @@ span.header {
 
 #podcast .reviews {
     margin-top: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 0px;
+    padding-bottom: 50px;
 }
 
 #podcast .review {
@@ -244,4 +245,8 @@ nav {
 nav a:hover {
     color: #fff;
     text-decoration: underline !important;
+}
+
+button.load-more {
+    margin-bottom: 30px;
 }

@@ -7,12 +7,16 @@
 
 module.exports = {
  
- attributes: {
-      email: 'string', //todo 
-      phone:'string',
-      fName:'string',
-      lName:'string'
+  attributes: {
+    email: 'string',
+    phone:'string',
+    fName:'string',
+    lName:'string',
+
+    reviews: {
+      collection: 'Review',
+      via: 'user'
+    },
   }
 };
-// sails.config.models.migrate='drop';
 

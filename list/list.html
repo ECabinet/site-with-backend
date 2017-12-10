@@ -4,10 +4,19 @@
     </div>
 
     <div class="podcast-list col-md-9 mx-auto">
-        <div ng-repeat="episode in $ctrl.episodes">
+        <div ng-repeat="episode in $ctrl.episodes | orderBy: '-date'">
             <list-episode
                 episode="episode">
             </list-episode>
         </div>
+
+        <center>
+            <button
+                ng-if="$ctrl.total > $ctrl.skip + 2"
+                class="btn btn-primary load-more"
+                ng-click="$ctrl.showMore()">
+                Load More
+            </button>
+        </center>
     </div>
 </div>
