@@ -12,7 +12,7 @@ module.exports = {
   	  userId: 'integer',
       rRating: 'integer',
       rDescription : 'string',
-
+      podcastId: 'integer',
       reviewer:{
       	collection: 'User'
       }
