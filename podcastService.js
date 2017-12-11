@@ -2,10 +2,11 @@ angular
   .module('ecabinet')
   .factory('podcastFactory', podcastFactory);
 
-function podcastFactory() {
+function podcastFactory($http, GLOBAL_VARIABLES, $state) {
+  var authenticated = false;
   var episodes = [
     {
-      uuid: 1,
+      id: 1,
       title: 'James Ellsmoor EP4 - Forbes 30 under 30', 
       date: 'October 14, 2017', 
       timeLength: '00:24:53', 
@@ -14,7 +15,7 @@ function podcastFactory() {
       pic: 'https://i1.sndcdn.com/artworks-000245748234-6b02on-t500x500.jpg'
     },
     {
-      uuid: 2,
+      id: 2,
       title: 'Aneri Pradhan EP3', 
       date: 'October 03, 2017', 
       timeLength: '00:31:23', 
@@ -23,7 +24,7 @@ function podcastFactory() {
       pic: 'https://i1.sndcdn.com/artworks-000243903215-lrmsh1-t500x500.jpg'
     },
     {
-      uuid: 3,
+      id: 3,
       title: 'Frank Torti EP1', 
       date: 'September 28, 2017', 
       timeLength: '00:22:32', 
@@ -32,7 +33,7 @@ function podcastFactory() {
       pic: 'https://i1.sndcdn.com/artworks-000242786252-qn6qtj-t500x500.jpg'
     },
     {
-      uuid: 4,
+      id: 4,
       title: 'Buck Goldstein EP2', 
       date: 'September 16, 2017', 
       timeLength: '00:36:31', 
@@ -45,18 +46,46 @@ function podcastFactory() {
   return {
     getAll:  getAll,
     getById: getById,
+    getProfile: getProfile,
+    authenticated: checkAuthentication
   };
 
   function getAll() {
     return episodes;
   }
 
-  function getById(uuid) {
-    uuid = parseInt(uuid);
+  function getById(id) {
+    id = parseInt(id);
     for (var i = 0; i < episodes.length; i++) {
-      if (episodes[i].uuid === uuid) {
+      if (episodes[i].id === id) {
         return episodes[i];
       }
     }
+  }
+
+  function getProfile() {
+    return $http({
+      method: 'GET',
+      url: GLOBAL_VARIABLES.API_URL + '/me'
+    }).then(function successCallback(response) {
+      if (response.data.me) {
+        authenticated = true;
+        return response.data.me
+      } else {
+        authenticated = false;
+        $state.go('login');
+        return false;
+      }
+
+      // this callback will be called asynchronously
+      // when the response is available
+    }, function errorCallback(response) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+    });
+  }
+
+  function checkAuthentication() {
+    return authenticated;
   }
 }

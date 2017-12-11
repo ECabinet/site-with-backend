@@ -1,6 +1,6 @@
 var myApp = angular.module('ecabinet', ['ui.router']);
 
-myApp.config(function($stateProvider, $urlRouterProvider, $sceProvider) {
+myApp.config(function($stateProvider, $urlRouterProvider, $sceProvider, $httpProvider) {
   var landingState = {
     name: 'landing',
     url: '/',
@@ -40,4 +40,6 @@ myApp.config(function($stateProvider, $urlRouterProvider, $sceProvider) {
   $urlRouterProvider.otherwise('/');
 
   $sceProvider.enabled(false);
+
+  $httpProvider.defaults.withCredentials = true;
 });

@@ -12,7 +12,8 @@
                 type="text"
                 name="email"
                 placeholder="Email"
-                class="form-control">
+                class="form-control"
+                ng-model="$ctrl.email">
                 <div class="input-group-addon"><span class="fa fa-envelope-o"></span></div>
             </div>
 
@@ -21,13 +22,14 @@
                 type="password"
                 name="password"
                 placeholder="Password"
-                class="form-control">
+                class="form-control"
+                ng-model="$ctrl.password">
                 <div class="input-group-addon"><span class="fa fa-envelope-o"></span></div>
             </div>
 
             <div class="buttons row">
                 <div class="col-md-6">
-                    <button class="sign-up" type="submit">Login</button>
+                    <button class="sign-up" type="submit" ng-click="$ctrl.login()">Login</button>
                 </div>
 
                 <div class="col-md-6">
