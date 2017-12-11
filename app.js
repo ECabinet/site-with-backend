@@ -1,6 +1,6 @@
 var myApp = angular.module('ecabinet', ['ui.router']);
 
-myApp.config(function($stateProvider, $urlRouterProvider, $sceProvider, $httpProvider) {
+myApp.config(function($stateProvider, $urlRouterProvider, $sceProvider, $httpProvider, $transitionsProvider, podcastFactory) {
   var landingState = {
     name: 'landing',
     url: '/',
@@ -16,7 +16,17 @@ myApp.config(function($stateProvider, $urlRouterProvider, $sceProvider, $httpPro
   var episodeState = {
     name: 'episode',
     url: '/podcasts/{podcastId}',
-    component: 'episode'
+    component: 'episode',
+    resolve:   {
+      profile: function($http, GLOBAL_VARIABLES) {
+        return $http({
+          method: 'GET',
+          url: GLOBAL_VARIABLES.API_URL + '/me'
+        }).then(function successCallback(response) {
+          return response.data.me;
+        })
+      }
+    }
   };
 
   var mailingState = {
@@ -43,3 +53,8 @@ myApp.config(function($stateProvider, $urlRouterProvider, $sceProvider, $httpPro
 
   $httpProvider.defaults.withCredentials = true;
 });
+
+
+function profileResolver($stateParams, multiDayPlanSaveInitialData) {
+  return profileResolver($stateParams);
+}

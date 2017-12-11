@@ -4,6 +4,7 @@ angular
     templateUrl: 'episode/episode.html',
     controller:  EpisodeCtrl,
     bindings:    {
+      profile: '<'
     }
   });
 
@@ -34,6 +35,7 @@ function EpisodeCtrl($stateParams, podcastFactory, $http, GLOBAL_VARIABLES, $sce
 
     $http.get(GLOBAL_VARIABLES.API_URL + '/podcast/' + $stateParams.podcastId)
       .then(function successCallback(response) {
+        debugger;
         ctrl.episode = response.data;
 
         if (ctrl.episode.reviews.length) {
@@ -54,19 +56,21 @@ function EpisodeCtrl($stateParams, podcastFactory, $http, GLOBAL_VARIABLES, $sce
         // called asynchronously if an error occurs
         // or server returns response with an error status.
       });
-
-    ctrl.profile = podcastFactory.getProfile();
   }
 
-  function saveReview() {
+  function saveReview() {  
     ctrl.writeReview = !ctrl.writeReview;
     $http.post(GLOBAL_VARIABLES.API_URL + '/review', {
-      user: ctrl.profile.value.id,
-      description: 'abc'
+      user: ctrl.profile.id,
+      podcast: ctrl.episode.id,
+      description: ctrl.description,
+      rating: ctrl.rating
     }).then(function successCallback(response) {
         ctrl.reviews.push({
-          user: ctrl.profile.value.id,
-          description: 'abc'
+          user: ctrl.profile,
+          podcast: ctrl.episode.id,
+          description: ctrl.description,
+          rating: ctrl.rating
         });
 
         // this callback will be called asynchronously
