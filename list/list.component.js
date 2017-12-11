@@ -4,6 +4,8 @@ angular
     templateUrl: 'list/list.html',
     controller:  ListCtrl,
     bindings:    {
+      profile: '<',
+      viewedPodcasts: '<'
     }
   });
 
@@ -12,6 +14,7 @@ function ListCtrl(podcastFactory, GLOBAL_VARIABLES, $http) {
 
   ctrl.$onInit = $onInit;
   ctrl.showMore = showMore;
+  ctrl.viewedPodcast = viewedPodcast;
 
   ctrl.episodes = podcastFactory.getAll();
 
@@ -19,7 +22,7 @@ function ListCtrl(podcastFactory, GLOBAL_VARIABLES, $http) {
   ctrl.total = 0;
 
   function $onInit() {
-    ctrl.profile = podcastFactory.getProfile();
+    podcastFactory.getProfile();
 
     $http({
       method: 'GET',
@@ -67,5 +70,15 @@ function ListCtrl(podcastFactory, GLOBAL_VARIABLES, $http) {
       // called asynchronously if an error occurs
       // or server returns response with an error status.
     });
+  }
+
+  function viewedPodcast(episode) {
+    var usersViews = ctrl.viewedPodcasts.filter(view => view.user.id === ctrl.profile.id);
+    var viewedIds = usersViews.map(view => view.podcast.id);
+    if (viewedIds.includes(episode.id)) {
+      return true;
+    }
+
+    return false;
   }
 }

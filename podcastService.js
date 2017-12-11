@@ -47,7 +47,8 @@ function podcastFactory($http, GLOBAL_VARIABLES, $state) {
     getAll:  getAll,
     getById: getById,
     getProfile: getProfile,
-    authenticated: checkAuthentication
+    authenticated: checkAuthentication,
+    logout: logout
   };
 
   function getAll() {
@@ -83,6 +84,19 @@ function podcastFactory($http, GLOBAL_VARIABLES, $state) {
       // called asynchronously if an error occurs
       // or server returns response with an error status.
     });
+  }
+
+  function logout() {
+    $http.get(GLOBAL_VARIABLES.API_URL + '/logout')
+      .then(function successCallback(response) {
+        authenticated = false;
+        $state.go('login');
+        // this callback will be called asynchronously
+        // when the response is available
+      }, function errorCallback(response) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+      });
   }
 
   function checkAuthentication() {

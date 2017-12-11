@@ -1,6 +1,6 @@
 var myApp = angular.module('ecabinet', ['ui.router']);
 
-myApp.config(function($stateProvider, $urlRouterProvider, $sceProvider, $httpProvider, $transitionsProvider, podcastFactory) {
+myApp.config(function($stateProvider, $urlRouterProvider, $sceProvider, $httpProvider, $transitionsProvider) {
   var landingState = {
     name: 'landing',
     url: '/',
@@ -10,7 +10,25 @@ myApp.config(function($stateProvider, $urlRouterProvider, $sceProvider, $httpPro
   var listState = {
     name: 'podcasts',
     url: '/podcasts',
-    component: 'list'
+    component: 'list',
+    resolve:   {
+      viewedPodcasts: function($http, GLOBAL_VARIABLES) {
+        return $http({
+          method: 'GET',
+          url: GLOBAL_VARIABLES.API_URL + '/viewedPodcast'
+        }).then(function successCallback(response) {
+          return response.data;
+        });
+      },
+      profile: function($http, GLOBAL_VARIABLES) {
+        return $http({
+          method: 'GET',
+          url: GLOBAL_VARIABLES.API_URL + '/me'
+        }).then(function successCallback(response) {
+          return response.data.me;
+        });
+      }
+    }
   };
 
   var episodeState = {
@@ -18,6 +36,14 @@ myApp.config(function($stateProvider, $urlRouterProvider, $sceProvider, $httpPro
     url: '/podcasts/{podcastId}',
     component: 'episode',
     resolve:   {
+      viewedPodcasts: function($http, GLOBAL_VARIABLES) {
+        return $http({
+          method: 'GET',
+          url: GLOBAL_VARIABLES.API_URL + '/viewedPodcast'
+        }).then(function successCallback(response) {
+          return response.data;
+        });
+      },
       profile: function($http, GLOBAL_VARIABLES) {
         return $http({
           method: 'GET',
@@ -53,8 +79,3 @@ myApp.config(function($stateProvider, $urlRouterProvider, $sceProvider, $httpPro
 
   $httpProvider.defaults.withCredentials = true;
 });
-
-
-function profileResolver($stateParams, multiDayPlanSaveInitialData) {
-  return profileResolver($stateParams);
-}

@@ -24,6 +24,11 @@ module.exports = {
       collection: 'Review',
       via: 'user'
     },
+
+    viewedPodcasts: {
+      collection: 'viewedPodcast',
+      via: 'podcast'
+    }
   },
 
   signup: function (inputs, cb) {

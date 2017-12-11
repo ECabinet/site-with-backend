@@ -240,6 +240,7 @@ span.header {
 
 nav {
     margin-right: 100px;
+    color: #fff !important;
 }
 
 nav a:hover {
@@ -249,4 +250,12 @@ nav a:hover {
 
 button.load-more {
     margin-bottom: 30px;
+}
+
+.viewed-podcast {
+    opacity: 0.5;
+}
+
+.viewed-podcast:hover {
+    opacity: 1;
 }

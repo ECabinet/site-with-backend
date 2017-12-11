@@ -9,14 +9,15 @@
 
     <div id="form" class="col-md-7">
         <h1>Sign Up</h1>
-        <form action="form.php" method="post" class="form-group">
+        <form method="post" class="form-group">
 
             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                 <input
                     type="text"
                     name="fname"
                     placeholder="First Name"
-                    class="form-control">
+                    class="form-control"
+                    ng-model="$ctrl.fFame">
                 <div class="input-group-addon"><span class="fa fa-id-card-o"></span></div>
             </div>
 
@@ -25,7 +26,8 @@
                     type="text"
                     name="lname"
                     placeholder="Last Name"
-                    class="form-control">
+                    class="form-control"
+                    ng-model="$ctrl.lName">
                 <div class="input-group-addon"><span class="fa fa-id-card-o"></span></div>
             </div>
 
@@ -34,7 +36,8 @@
                     type="text"
                     name="phone"
                     placeholder="Phone"
-                    class="form-control">
+                    class="form-control"
+                    ng-model="$ctrl.phone">
                 <div class="input-group-addon"><span class="fa fa-phone"></span></div>
             </div>
 
@@ -43,13 +46,24 @@
                 type="text"
                 name="email"
                 placeholder="Email"
-                class="form-control">
+                class="form-control"
+                ng-model="$ctrl.email">
                 <div class="input-group-addon"><span class="fa fa-envelope-o"></span></div>
+            </div>
+
+            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                class="form-control"
+                ng-model="$ctrl.password">
+                <div class="input-group-addon"><span class="fa fa-lock"></span></div>
             </div>
 
             <div class="buttons row">
                 <div class="col-md-6">
-                    <button class="sign-up" type="submit">Sign up!</button>
+                    <button class="sign-up" type="submit" ng-click="$ctrl.signup()">Sign up!</button>
                 </div>
 
                 <div class="col-md-6">

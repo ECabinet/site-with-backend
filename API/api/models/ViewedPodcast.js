@@ -8,8 +8,6 @@
 module.exports = {
 
   attributes: {
-    userId: 'integer',
-
     podcast: {
       model: 'Podcast'
     },

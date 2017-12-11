@@ -4,7 +4,7 @@
     </div>
 
     <div class="podcast-list col-md-9 mx-auto">
-        <div ng-repeat="episode in $ctrl.episodes | orderBy: '-date'">
+        <div ng-repeat="episode in $ctrl.episodes | orderBy: '-date'" ng-class="{ 'viewed-podcast': $ctrl.viewedPodcast(episode) }">
             <list-episode
                 episode="episode">
             </list-episode>
