@@ -8,7 +8,14 @@
 module.exports = {
  
   attributes: {
-    email: 'string',
+    email: {
+      type: 'email',
+      required: true
+    },
+    password: {
+      type: 'string',
+      required: true
+    },
     phone:'string',
     fName:'string',
     lName:'string',
@@ -17,6 +24,39 @@ module.exports = {
       collection: 'Review',
       via: 'user'
     },
+  },
+
+  signup: function (inputs, cb) {
+    // Create a user
+    User.create({
+      name: inputs.name,
+      email: inputs.email,
+      // TODO: But encrypt the password first
+      password: inputs.password
+    })
+    .exec(cb);
+  },
+
+
+
+  /**
+   * Check validness of a login using the provided inputs.
+   * But encrypt the password first.
+   *
+   * @param  {Object}   inputs
+   *                     • email    {String}
+   *                     • password {String}
+   * @param  {Function} cb
+   */
+
+  attemptLogin: function (inputs, cb) {
+    // Create a user
+    User.findOne({
+      email: inputs.email,
+      // TODO: But encrypt the password first
+      password: inputs.password
+    })
+    .exec(cb);
   }
 };
 

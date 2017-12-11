@@ -21,11 +21,6 @@
  */
 
 module.exports.routes = {
-  cors: {
-    origin: 'http://localhost:1337',
-    methods: 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
-    headers: 'Content-Type, Authorization, X-Requested-With'
-  },
 
   /***************************************************************************
   *                                                                          *
@@ -40,10 +35,12 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
-  '/login' : {
-     controller: 'UserController',
-     action: 'login'
-  },
+
+  'get /me': 'UserController.profile',
+  'post /login': 'UserController.login',
+  'post /signup': 'UserController.signup',
+
+  '/logout': 'UserController.logout',
 
   'get /podcast/count': 'PodcastController.count'
 
