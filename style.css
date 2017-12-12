@@ -276,3 +276,8 @@ span.w3-xlarge {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+html,body,h1,h2,h3,h4 {font-family:sans-serif; }
+        .mySlides {display:none; }
+        .w3-tag, .fa {cursor:pointer; }
+        .w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
