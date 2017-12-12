@@ -1,29 +1,31 @@
 angular
   .module('ecabinet')
-  .component('login', {
-    templateUrl: 'login/login.html',
-    controller:  LoginCtrl,
+  .component('addPodcast', {
+    templateUrl: 'addPodcast/addPodcast.html',
+    controller:  AddPodcastCtrl,
     bindings:    {
     }
   });
 
-function LoginCtrl($http, GLOBAL_VARIABLES, $state, podcastFactory) {
+function AddPodcastCtrl($http, GLOBAL_VARIABLES, $state) {
   var ctrl = this;
 
-  ctrl.login = login;
+  ctrl.submit = submit;
 
-  function login() {
-    $http.post(GLOBAL_VARIABLES.API_URL + '/login', {
-      email: ctrl.email,
-      password: ctrl.password
+  function submit() {
+    $http.post(GLOBAL_VARIABLES.API_URL + '/podcast', {
+      title: ctrl.title,
+      date: ctrl.date,
+      description: ctrl.description,
+      timeLength: ctrl.length,
+      url: ctrl.url,
+      pic: ctrl.pic
     }).then(function successCallback(response) {
-        podcastFactory.getProfile();
         $state.go('podcasts');
+
         // this callback will be called asynchronously
         // when the response is available
       }, function errorCallback(response) {
-        debugger;
-        ctrl.serverError = response.data
         // called asynchronously if an error occurs
         // or server returns response with an error status.
       });

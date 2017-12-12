@@ -67,11 +67,18 @@ myApp.config(function($stateProvider, $urlRouterProvider, $sceProvider, $httpPro
     component: 'login'
   };
 
+  var addPodcastState = {
+    name: 'addPodcast',
+    url: '/podcast/create',
+    component: 'addPodcast'
+  };
+
   $stateProvider.state(landingState);
   $stateProvider.state(listState);
   $stateProvider.state(episodeState);
   $stateProvider.state(mailingState);
   $stateProvider.state(loginState);
+  $stateProvider.state(addPodcastState);
 
   $urlRouterProvider.otherwise('/');
 

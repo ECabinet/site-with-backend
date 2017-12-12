@@ -47,6 +47,7 @@ function podcastFactory($http, GLOBAL_VARIABLES, $state, localStorageService) {
     getById: getById,
     getProfile: getProfile,
     authenticated: checkAuthentication,
+    isAdmin: isAdmin,
     logout: logout
   };
 
@@ -70,7 +71,14 @@ function podcastFactory($http, GLOBAL_VARIABLES, $state, localStorageService) {
     }).then(function successCallback(response) {
       if (response.data.me) {
         localStorageService.set("authenticated", true);
-        return response.data.me
+
+        if (response.data.me.roles.length) {
+          localStorageService.set("admin", true);
+        } else {
+          localStorageService.set("admin", false);
+        }
+
+        return response.data.me;
       } else {
         localStorageService.set("authenticated", false);
         $state.go('login');
@@ -100,5 +108,9 @@ function podcastFactory($http, GLOBAL_VARIABLES, $state, localStorageService) {
 
   function checkAuthentication() {
     return localStorageService.get("authenticated");
+  }
+
+  function isAdmin() {
+    return localStorageService.get("admin");
   }
 }

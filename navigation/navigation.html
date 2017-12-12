@@ -15,6 +15,9 @@
                     <a ui-sref="podcasts" class="nav-link">Podcasts</a>
                 </li>
                 <li class="nav-item">
+                    <a ng-if="$ctrl.isAdmin()" ui-sref="addPodcast" class="nav-link">Add Podcast</a>
+                </li>
+                <li class="nav-item">
                     <a ng-click="$ctrl.logout()" href="" class="nav-link">Logout</a>
                 </li>
             </ul>

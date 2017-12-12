@@ -16,7 +16,8 @@ module.exports = {
     User.findOne({
       email: req.param('email'),
       password: req.param('password')
-    }).then(function (user) {
+    })
+    .populate('roles').then(function (user) {
       if (!user) {
         // If this is not an HTML-wanting browser, e.g. AJAX/sockets/cURL/etc.,
         // send a 200 response letting the user agent know the login was successful.

@@ -12,6 +12,7 @@ function NavigationCtrl(podcastFactory, $http, GLOBAL_VARIABLES, $state) {
 
 	ctrl.loggedIn = loggedIn;
   ctrl.logout = logout;
+  ctrl.isAdmin = isAdmin;
 
 	function loggedIn() {
 		return podcastFactory.authenticated();
@@ -19,5 +20,9 @@ function NavigationCtrl(podcastFactory, $http, GLOBAL_VARIABLES, $state) {
 
   function logout() {
     return podcastFactory.logout();
+  }
+
+  function isAdmin() {
+    return podcastFactory.isAdmin();
   }
 }

@@ -24,12 +24,13 @@
                 placeholder="Password"
                 class="form-control"
                 ng-model="$ctrl.password">
-                <div class="input-group-addon"><span class="fa fa-envelope-o"></span></div>
+                <div class="input-group-addon"><span class="fa fa-lock"></span></div>
             </div>
 
             <div class="buttons row">
                 <div class="col-md-6">
                     <button class="sign-up" type="submit" ng-click="$ctrl.login()">Login</button>
+                    <p class="text-danger">{{ $ctrl.serverError }}</p>
                 </div>
 
                 <div class="col-md-6">

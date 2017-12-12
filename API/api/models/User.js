@@ -26,8 +26,13 @@ module.exports = {
     },
 
     viewedPodcasts: {
-      collection: 'viewedPodcast',
+      collection: 'ViewedPodcast',
       via: 'podcast'
+    },
+
+    roles: {
+      collection: 'Roles',
+      via: 'user'
     }
   },
 

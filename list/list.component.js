@@ -74,7 +74,11 @@ function ListCtrl(podcastFactory, GLOBAL_VARIABLES, $http) {
 
   function viewedPodcast(episode) {
     var usersViews = ctrl.viewedPodcasts.filter(view => view.user.id === ctrl.profile.id);
-    var viewedIds = usersViews.map(view => view.podcast.id);
+    var viewedIds = usersViews.map(function(view) {
+      if (view.podcast) {
+        return view.podcast.id;        
+      }
+    });
     if (viewedIds.includes(episode.id)) {
       return true;
     }
