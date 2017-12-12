@@ -10,15 +10,11 @@ module.exports = {
   attributes: {
     rating: 'integer',
     description: 'string',
-
     user: {
       model: 'User'
     },
-
     podcast: {
       model: 'Podcast'
     }
   },
 };
-
-// Podcast.CREATE({pTitle: 'James', url: 'https://soundcloud.com/user-744020114/e-cabinetjames-ellsmoor-ep4'}).EXEC(CONSOLE.LOG)

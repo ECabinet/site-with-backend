@@ -22,8 +22,7 @@ function LoginCtrl($http, GLOBAL_VARIABLES, $state, podcastFactory) {
         // this callback will be called asynchronously
         // when the response is available
       }, function errorCallback(response) {
-        debugger;
-        ctrl.serverError = response.data
+        ctrl.serverError = response.data;
         // called asynchronously if an error occurs
         // or server returns response with an error status.
       });

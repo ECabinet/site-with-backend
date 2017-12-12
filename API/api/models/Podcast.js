@@ -14,7 +14,6 @@ module.exports = {
     date: 'date',
     timeLength:'string', 
     pic:'string',
-
     reviews: {
       collection: 'Review',
       via: 'podcast'
