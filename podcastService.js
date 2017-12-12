@@ -2,8 +2,7 @@ angular
   .module('ecabinet')
   .factory('podcastFactory', podcastFactory);
 
-function podcastFactory($http, GLOBAL_VARIABLES, $state) {
-  var authenticated = false;
+function podcastFactory($http, GLOBAL_VARIABLES, $state, localStorageService) {
   var episodes = [
     {
       id: 1,
@@ -70,10 +69,10 @@ function podcastFactory($http, GLOBAL_VARIABLES, $state) {
       url: GLOBAL_VARIABLES.API_URL + '/me'
     }).then(function successCallback(response) {
       if (response.data.me) {
-        authenticated = true;
+        localStorageService.set("authenticated", true);
         return response.data.me
       } else {
-        authenticated = false;
+        localStorageService.set("authenticated", false);
         $state.go('login');
         return false;
       }
@@ -89,7 +88,7 @@ function podcastFactory($http, GLOBAL_VARIABLES, $state) {
   function logout() {
     $http.get(GLOBAL_VARIABLES.API_URL + '/logout')
       .then(function successCallback(response) {
-        authenticated = false;
+        localStorageService.set("authenticated", false);
         $state.go('login');
         // this callback will be called asynchronously
         // when the response is available
@@ -100,6 +99,6 @@ function podcastFactory($http, GLOBAL_VARIABLES, $state) {
   }
 
   function checkAuthentication() {
-    return authenticated;
+    return localStorageService.get("authenticated");
   }
 }

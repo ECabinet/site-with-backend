@@ -1,4 +1,4 @@
-var myApp = angular.module('ecabinet', ['ui.router']);
+var myApp = angular.module('ecabinet', ['ui.router', 'LocalStorageModule']);
 
 myApp.config(function($stateProvider, $urlRouterProvider, $sceProvider, $httpProvider, $transitionsProvider) {
   var landingState = {
